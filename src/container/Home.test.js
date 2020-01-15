@@ -1,13 +1,30 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import Home from './Home';
-import { findByTestAttr } from '../utils/TestUtils';
+import { findByTestAttr, testPropTypes } from '../utils/TestUtils';
 
 const setUp = (props = {}) => {
     return shallow(<Home {...props} />);
 }
 
 describe('<Home /> component', () => {
+
+    describe('Checking PropTypes', () => {
+
+        it('Should not show warnings', () => {
+            const expectedProps = {
+                header: "Test Header",
+                footer: "Test Footer",
+                tempArr: [{
+                    name: "Koushik Pal",
+                    age: 32,
+                    onlineStatus: true
+                }]
+            }
+            const propsError = testPropTypes(Home, expectedProps);
+            expect(propsError).toBeUndefined();
+        });
+    });
 
     describe('Have props', () => {
 

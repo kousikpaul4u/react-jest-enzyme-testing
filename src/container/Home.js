@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Header from './Header';
 import Footer from './Footer';
 
-export default class Home extends Component {
+class Home extends Component {
 
     constructor(props) {
         super(props);
@@ -23,5 +24,16 @@ export default class Home extends Component {
             </div>
         )
     }
-
 }
+
+Home.propTypes = {
+    header: PropTypes.string,
+    footer: PropTypes.string,
+    tempArr: PropTypes.arrayOf(PropTypes.shape({
+        name: PropTypes.string,
+        age: PropTypes.number,
+        onlineStatus: PropTypes.bool
+    }))
+}
+
+export default Home;
