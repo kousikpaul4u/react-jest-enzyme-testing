@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import { success } from './successReducer';
+import Common from './common';
 
 export default combineReducers({
-    success
+    common: Common
 });
