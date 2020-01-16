@@ -10,7 +10,7 @@ const tempArr = [{
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" data-test="app-component">
       <Home header="Welcome to React" footer="All rights reserved." tempArr={tempArr} />
     </div>
   );
