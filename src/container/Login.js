@@ -28,7 +28,7 @@ function Login(props) {
             <Button id="login-button" text="Submit" type="button" onClick={onClick} />
             {
                 props.data && props.data.map((post) =>
-                    <ListItems title={post.title} desc={post.desc} />
+                    <ListItems title={post.title} desc={post.body} />
                 )
             }
         </div>

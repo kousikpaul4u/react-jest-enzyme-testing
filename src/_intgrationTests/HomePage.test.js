@@ -40,4 +40,4 @@ describe('Fetch posts action', () => {
         })
     });
 
-})
+}) 
