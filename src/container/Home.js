@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Header from './Header';
 import Footer from './Footer';
+import Login from 'container/Login';
 
 class Home extends Component {
 
@@ -17,6 +18,7 @@ class Home extends Component {
                     header ?
                         <Header data-test="header" message={header} /> : null
                 }
+                <Login />
                 {
                     footer ?
                         <Footer data-test="footer" message={footer} /> : null

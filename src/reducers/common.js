@@ -6,7 +6,7 @@ export default (state = {}, action) => {
             return { ...state, success: action.payload };
         case types.SET_ERROR:
             return { ...state, error: action.payload };
-        case types.SET_DATA:
+        case types.SET_POSTS:
             return { ...state, data: action.payload };
         default:
             return state;
