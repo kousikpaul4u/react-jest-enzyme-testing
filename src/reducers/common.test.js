@@ -36,7 +36,7 @@ describe('Common Reducer', () => {
             onlineStatus: true
         }];
         const newState = commonReducer(undefined, {
-            type: types.SET_DATA,
+            type: types.SET_POSTS,
             payload: payload
         });
         expect(newState).toEqual({ data: payload });
