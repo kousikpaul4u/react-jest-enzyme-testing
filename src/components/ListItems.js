@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 export default function ListItems(props) {
 
     const { title, desc } = props;
+
     return (
         <div data-test="list-items-component">
             <h2 data-test="title">{title}</h2>

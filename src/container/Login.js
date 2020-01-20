@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import Button from 'components/button/button';
 import ListItems from 'components/ListItems';
 import { fetchPosts } from 'actions/posts';
@@ -34,6 +35,13 @@ function Login(props) {
         </div>
     )
 
+}
+
+Login.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.shape({
+        title: PropTypes.string,
+        body: PropTypes.string
+    }))
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);

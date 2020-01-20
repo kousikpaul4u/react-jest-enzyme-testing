@@ -29,14 +29,14 @@ describe('<Button /> component', () => {
         }
 
         let component;
+        let mockFunc;
         beforeEach(() => {
+            mockFunc = jest.fn();
             component = setUp({
                 id: "button",
                 className: "button",
                 type: "submit",
-                onClick: () => {
-
-                }
+                onClick: mockFunc
             });
         })
 
@@ -44,6 +44,13 @@ describe('<Button /> component', () => {
             const wrapper = findByTestAttr(component, 'button-component');
             expect(wrapper.length).toBe(1);
         })
+
+        it('Should emit callback on click event', () => {
+            const button = findByTestAttr(component, 'button-component');
+            button.simulate('click');
+            const callback = mockFunc.mock.calls.length;
+            expect(callback).toBe(1);
+        });
 
     })
 
