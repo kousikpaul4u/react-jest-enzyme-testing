@@ -43,7 +43,7 @@ describe('<Login /> component', () => {
         it('Should render', () => {
             const wrapper = findByTestAttr(component, 'submit-button');
             expect(wrapper.length).toBe(1);
-        })
+        });
 
         it('Should update hideButton state', () => {
             const classInstance = component.instance();
@@ -57,6 +57,13 @@ describe('<Login /> component', () => {
             classInstance.onClick();
             const data = classInstance.props.data;
             expect(data).toEqual([{ title: 'Koushik Pal', body: 'Test' }]);
+        });
+
+        it('Submit button should not show', () => {
+            const classInstance = component.instance();
+            classInstance.onClick();
+            const wrapper = findByTestAttr(component, 'submit-button');
+            expect(wrapper.length).toBe(0);
         });
 
         it('Should render', () => {

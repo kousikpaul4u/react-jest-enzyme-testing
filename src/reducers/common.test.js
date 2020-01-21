@@ -14,7 +14,7 @@ describe('Common Reducer', () => {
             type: types.SET_SUCCESS,
             payload: payload
         });
-        expect(newState).toEqual({ success: payload });
+        expect(newState).toEqual({ success: true });
     });
 
     it('Should return new state if SET_ERROR triggered', () => {

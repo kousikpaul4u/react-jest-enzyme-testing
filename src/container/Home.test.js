@@ -7,7 +7,7 @@ const setUp = (props = {}) => {
     return shallow(<Home {...props} />);
 }
 
-describe('<Home /> component', () => {
+describe('<Home /> container', () => {
 
     describe('Checking PropTypes', () => {
 
@@ -24,6 +24,21 @@ describe('<Home /> component', () => {
             const propsError = testPropTypes(Home, expectedProps);
             expect(propsError).toBeUndefined();
         });
+
+        it('Should show warnings for tempArr.age', () => {
+            const expectedProps = {
+                header: "Test Header",
+                footer: "Test Footer",
+                tempArr: [{
+                    name: "Koushik Pal",
+                    age: "Some string",
+                    onlineStatus: true
+                }]
+            }
+            const propsError = testPropTypes(Home, expectedProps);
+            expect(propsError).toEqual("Failed props type: Invalid props `tempArr[0].age` of type `string` supplied to `Home`, expected `number`.");
+        });
+
     });
 
     describe('Have props', () => {

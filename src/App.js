@@ -11,7 +11,7 @@ const tempArr = [{
 function App() {
   return (
     <div className="App" data-test="app-component">
-      <Home header="Welcome to React" footer="All rights reserved." tempArr={tempArr} />
+      <Home data-test="home-component" header="Welcome to React" footer="All rights reserved." tempArr={tempArr} />
     </div>
   );
 }

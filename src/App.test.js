@@ -14,7 +14,7 @@ describe('<App /> component', () => {
     beforeEach(() => {
         const initialState = {
             common: {
-                posts: [{
+                data: [{
                     title: "Test title 1",
                     body: "Test"
                 },
@@ -31,10 +31,14 @@ describe('<App /> component', () => {
         component = setUp(initialState);
     })
 
-    it('Should renders without errors', () => {
+    it('Should renders app-component without errors', () => {
         const wrapper = findByTestAttr(component, 'app-component');
         expect(wrapper.length).toBe(1);
     });
 
+    it('Should renders home-component without errors', () => {
+        const wrapper = findByTestAttr(component, 'home-component');
+        expect(wrapper.length).toBe(1);
+    });
 
 });
