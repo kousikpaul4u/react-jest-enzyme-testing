@@ -2,7 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import Login from './Login';
 import { findByTestAttr, testPropTypes, testStore } from 'utils/TestUtils';
-import { exportAllDeclaration } from '@babel/types';
 
 describe('<Login /> component', () => {
 
@@ -30,15 +29,13 @@ describe('<Login /> component', () => {
         };
 
         let component;
-        let mockFunc;
         beforeEach(() => {
-            mockFunc = jest.fn();
             component = setUp({
                 common: {
                     data: [{
                         title: "Koushik Pal",
                         body: "Test",
-                    }]
+                    }],
                 }
             });
         })
@@ -55,17 +52,17 @@ describe('<Login /> component', () => {
             expect(newState).toBe(true);
         });
 
-        // it('Should render', () => {
-        //     const wrapper = findByTestAttr(component, 'list-items');
-        //     expect(wrapper.length).toBe(1);
-        // })
+        it('Should update hideButton state', () => {
+            const classInstance = component.instance();
+            classInstance.onClick();
+            const data = classInstance.props.data;
+            expect(data).toEqual([{ title: 'Koushik Pal', body: 'Test' }]);
+        });
 
-        // it('Should emit callback on click event', () => {
-        //     const button = findByTestAttr(component, 'submit-button');
-        //     button.simulate('click');
-        //     const callback = mockFunc.mock.calls.length;
-        //     expect(callback).toBe(1);
-        // });
+        it('Should render', () => {
+            const wrapper = findByTestAttr(component, 'list-items');
+            expect(wrapper.length).toBe(1);
+        })
 
     })
 
